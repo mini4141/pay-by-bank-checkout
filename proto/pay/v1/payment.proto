@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+package pay.v1;
+
+option go_package = "github.com/mini4141/pay-by-bank-checkout/gen/go/pay/v1;payv1";
+
+import "pay/v1/common.proto";
+
+service PaymentService {
+  // StartPayment (public) starts PaymentWorkflow `payment-<checkout_id>`.
+  rpc StartPayment(StartPaymentRequest) returns (StartPaymentResponse);
+  // WatchPayment (public) streams a snapshot on every state transition.
+  rpc WatchPayment(WatchPaymentRequest) returns (stream WatchPaymentResponse);
+  // The RPCs below require a merchant API key.
+  rpc ListPayments(ListPaymentsRequest) returns (ListPaymentsResponse);
+  rpc WatchMerchantPayments(WatchMerchantPaymentsRequest) returns (stream WatchMerchantPaymentsResponse);
+  rpc RefundPayment(RefundPaymentRequest) returns (RefundPaymentResponse);
+}
+
+message StartPaymentRequest {
+  string checkout_id = 1;
+  string bank = 2;
+  string idempotency_key = 3;
+}
+
+message StartPaymentResponse {
+  Payment payment = 1;
+}
+
+message WatchPaymentRequest {
+  string payment_id = 1;
+}
+
+message WatchPaymentResponse {
+  Payment payment = 1;
+}
+
+message ListPaymentsRequest {}
+
+message ListPaymentsResponse {
+  repeated Payment payments = 1;
+}
+
+message WatchMerchantPaymentsRequest {}
+
+message WatchMerchantPaymentsResponse {
+  repeated Payment payments = 1;
+}
+
+message RefundPaymentRequest {
+  string payment_id = 1;
+  string idempotency_key = 2;
+}
+
+message RefundPaymentResponse {
+  Payment payment = 1;
+}

@@ -1,0 +1,12 @@
+{
+  "name": "@pay/gen",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./*": "./src/pay/v1/*.ts"
+  },
+  "dependencies": {
+    "@bufbuild/protobuf": "^2.2.0"
+  }
+}

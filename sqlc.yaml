@@ -1,0 +1,11 @@
+version: "2"
+sql:
+  - engine: postgresql
+    queries: services/api/queries
+    schema: services/api/migrations
+    gen:
+      go:
+        package: db
+        out: services/api/db
+        sql_package: pgx/v5
+        emit_json_tags: false

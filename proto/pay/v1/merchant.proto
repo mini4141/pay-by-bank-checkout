@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package pay.v1;
+
+option go_package = "github.com/mini4141/pay-by-bank-checkout/gen/go/pay/v1;payv1";
+
+import "pay/v1/common.proto";
+
+service MerchantService {
+  // CreateMerchant returns the API key exactly once.
+  rpc CreateMerchant(CreateMerchantRequest) returns (CreateMerchantResponse);
+  // GetBalance requires a merchant API key (Authorization: Bearer).
+  rpc GetBalance(GetBalanceRequest) returns (GetBalanceResponse);
+}
+
+message CreateMerchantRequest {
+  string name = 1;
+  string webhook_url = 2;
+  string webhook_secret = 3; // optional; generated when empty
+  string idempotency_key = 4;
+}
+
+message CreateMerchantResponse {
+  string merchant_id = 1;
+  string api_key = 2; // empty on an idempotent replay
+  string webhook_secret = 3;
+}
+
+message GetBalanceRequest {}
+
+message GetBalanceResponse {
+  Money balance = 1;
+  string merchant_name = 2;
+}

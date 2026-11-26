@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package pay.v1;
+
+option go_package = "github.com/mini4141/pay-by-bank-checkout/gen/go/pay/v1;payv1";
+
+import "google/protobuf/timestamp.proto";
+
+// Money is an amount in minor units (int64) with an ISO 4217 currency.
+message Money {
+  int64 amount_minor = 1;
+  string currency = 2;
+}
+
+message PaymentEvent {
+  int64 id = 1;
+  string step = 2;   // RESERVE, RISK, DEBIT, SETTLE, WEBHOOK, REFUND
+  string status = 3; // OK, RETRY, FAILED
+  string detail = 4;
+  google.protobuf.Timestamp at = 5;
+}
+
+message WebhookDelivery {
+  int64 id = 1;
+  string event_type = 2;
+  int32 attempt = 3;
+  int32 status_code = 4;
+  string error = 5;
+  google.protobuf.Timestamp at = 6;
+}
+
+message Payment {
+  string id = 1;
+  string checkout_id = 2;
+  string bank = 3;
+  // PENDING, SETTLED, FAILED, CANCELLED, REFUNDED
+  string status = 4;
+  string workflow_id = 5;
+  Money amount = 6;
+  string reference = 7;
+  google.protobuf.Timestamp created_at = 8;
+  google.protobuf.Timestamp updated_at = 9;
+  repeated PaymentEvent events = 10;
+  repeated WebhookDelivery deliveries = 11;
+}

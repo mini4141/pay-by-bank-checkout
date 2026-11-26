@@ -1,0 +1,4 @@
+packages:
+  - gen/ts
+  - web/*
+  - e2e

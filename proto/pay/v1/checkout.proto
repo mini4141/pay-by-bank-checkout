@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package pay.v1;
+
+option go_package = "github.com/mini4141/pay-by-bank-checkout/gen/go/pay/v1;payv1";
+
+import "pay/v1/common.proto";
+
+service CheckoutService {
+  // CreateCheckout requires a merchant API key.
+  rpc CreateCheckout(CreateCheckoutRequest) returns (CreateCheckoutResponse);
+  // GetCheckout is public: the checkout id is the capability.
+  rpc GetCheckout(GetCheckoutRequest) returns (GetCheckoutResponse);
+}
+
+message Checkout {
+  string id = 1;
+  string merchant_name = 2;
+  Money amount = 3;
+  string reference = 4;
+  string return_url = 5;
+  string status = 6; // OPEN, PAID, FAILED, REFUNDED
+  string checkout_url = 7;
+  string payment_id = 8; // set once a payment was started
+}
+
+message CreateCheckoutRequest {
+  Money amount = 1;
+  string reference = 2;
+  string return_url = 3;
+  string idempotency_key = 4;
+}
+
+message CreateCheckoutResponse {
+  Checkout checkout = 1;
+}
+
+message GetCheckoutRequest {
+  string checkout_id = 1;
+}
+
+message GetCheckoutResponse {
+  Checkout checkout = 1;
+}

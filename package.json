@@ -1,0 +1,12 @@
+{
+  "name": "pay-by-bank-checkout",
+  "private": true,
+  "packageManager": "pnpm@12.3.4",
+  "engines": { "node": ">=24" },
+  "scripts": {
+    "generate": "buf generate"
+  },
+  "devDependencies": {
+    "@bufbuild/protoc-gen-es": "^2.2.0"
+  }
+}
