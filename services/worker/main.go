@@ -9,13 +9,13 @@ import (
 	"strconv"
 	"time"
 
-	"go.temporal.io/sdk/client"
 	"go.temporal.io/sdk/worker"
 
 	"github.com/mini4141/pay-by-bank-checkout/internal/envx"
 	"github.com/mini4141/pay-by-bank-checkout/internal/flow"
 	"github.com/mini4141/pay-by-bank-checkout/internal/logx"
 	"github.com/mini4141/pay-by-bank-checkout/internal/store"
+	"github.com/mini4141/pay-by-bank-checkout/internal/temporalx"
 )
 
 func main() {
@@ -35,7 +35,7 @@ func main() {
 		HTTP:      &http.Client{Timeout: 8 * time.Second},
 	}
 
-	c, err := dialWithRetry()
+	c, err := temporalx.Dial()
 	if err != nil {
 		slog.Error("temporal dial failed", "err", err)
 		os.Exit(1)
@@ -59,22 +59,4 @@ func main() {
 		slog.Error("worker stopped", "err", err)
 		os.Exit(1)
 	}
-}
-
-// dialWithRetry waits for the Temporal server, which may still be starting.
-func dialWithRetry() (client.Client, error) {
-	var err error
-	for i := 0; i < 30; i++ {
-		var c client.Client
-		c, err = client.Dial(client.Options{
-			HostPort:  envx.Get("TEMPORAL_ADDRESS", "localhost:7233"),
-			Namespace: envx.Get("TEMPORAL_NAMESPACE", "default"),
-		})
-		if err == nil {
-			return c, nil
-		}
-		slog.Warn("temporal not ready", "err", err)
-		time.Sleep(2 * time.Second)
-	}
-	return nil, err
 }

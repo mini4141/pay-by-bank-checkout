@@ -14,12 +14,12 @@ import (
 
 	connectcors "connectrpc.com/cors"
 	"github.com/rs/cors"
-	"go.temporal.io/sdk/client"
 
 	"github.com/mini4141/pay-by-bank-checkout/gen/go/pay/v1/payv1connect"
 	"github.com/mini4141/pay-by-bank-checkout/internal/envx"
 	"github.com/mini4141/pay-by-bank-checkout/internal/logx"
 	"github.com/mini4141/pay-by-bank-checkout/internal/store"
+	"github.com/mini4141/pay-by-bank-checkout/internal/temporalx"
 )
 
 const basePath = "/api"
@@ -45,10 +45,7 @@ func main() {
 		slog.Error("db connect failed", "err", err)
 		os.Exit(1)
 	}
-	tc, err := client.Dial(client.Options{
-		HostPort:  envx.Get("TEMPORAL_ADDRESS", "localhost:7233"),
-		Namespace: envx.Get("TEMPORAL_NAMESPACE", "default"),
-	})
+	tc, err := temporalx.Dial()
 	if err != nil {
 		slog.Error("temporal dial failed", "err", err)
 		os.Exit(1)
