@@ -7,31 +7,41 @@ resource "aws_s3_bucket" "dashboard" {
   force_destroy = true
 }
 
+resource "aws_s3_bucket_website_configuration" "dashboard" {
+  bucket = aws_s3_bucket.dashboard.id
+  index_document { suffix = "index.html" }
+  error_document { key = "index.html" }
+}
+
+# With CloudFront the bucket stays private (origin access control). Without it, the bucket serves the
+# static dashboard itself via S3 website hosting, so it must allow public reads (ADR 0002).
 resource "aws_s3_bucket_public_access_block" "dashboard" {
   bucket                  = aws_s3_bucket.dashboard.id
   block_public_acls       = true
-  block_public_policy     = true
   ignore_public_acls      = true
-  restrict_public_buckets = true
+  block_public_policy     = var.enable_cloudfront
+  restrict_public_buckets = var.enable_cloudfront
+}
+
+locals {
+  # AWS managed CloudFront policies
+  cache_disabled     = "4135ea2d-6df8-44a3-9df3-4b5a84be39ad"
+  cache_optimized    = "658327ea-f89d-4fab-a63d-7e88639e58f6"
+  all_viewer_no_host = "b689b0a8-53d0-40ab-baf2-68738e2966ac"
 }
 
 resource "aws_cloudfront_origin_access_control" "dashboard" {
+  count                             = var.enable_cloudfront ? 1 : 0
   name                              = "${var.name}-dashboard"
   origin_access_control_origin_type = "s3"
   signing_behavior                  = "always"
   signing_protocol                  = "sigv4"
 }
 
-locals {
-  # AWS managed policies
-  cache_disabled     = "4135ea2d-6df8-44a3-9df3-4b5a84be39ad"
-  cache_optimized    = "658327ea-f89d-4fab-a63d-7e88639e58f6"
-  all_viewer_no_host = "b689b0a8-53d0-40ab-baf2-68738e2966ac"
-}
-
 # The dashboard SPA is served from S3; /api/* goes to the ALB so the HTTPS page never makes
 # mixed-content calls (ADR 0002).
 resource "aws_cloudfront_distribution" "dashboard" {
+  count               = var.enable_cloudfront ? 1 : 0
   enabled             = true
   default_root_object = "index.html"
   price_class         = "PriceClass_100"
@@ -40,7 +50,7 @@ resource "aws_cloudfront_distribution" "dashboard" {
   origin {
     origin_id                = "s3"
     domain_name              = aws_s3_bucket.dashboard.bucket_regional_domain_name
-    origin_access_control_id = aws_cloudfront_origin_access_control.dashboard.id
+    origin_access_control_id = aws_cloudfront_origin_access_control.dashboard[0].id
   }
 
   origin {
@@ -85,17 +95,31 @@ resource "aws_cloudfront_distribution" "dashboard" {
 }
 
 data "aws_iam_policy_document" "dashboard_bucket" {
-  statement {
-    actions   = ["s3:GetObject"]
-    resources = ["${aws_s3_bucket.dashboard.arn}/*"]
-    principals {
-      type        = "Service"
-      identifiers = ["cloudfront.amazonaws.com"]
+  dynamic "statement" {
+    for_each = var.enable_cloudfront ? [1] : []
+    content {
+      actions   = ["s3:GetObject"]
+      resources = ["${aws_s3_bucket.dashboard.arn}/*"]
+      principals {
+        type        = "Service"
+        identifiers = ["cloudfront.amazonaws.com"]
+      }
+      condition {
+        test     = "StringEquals"
+        variable = "AWS:SourceArn"
+        values   = [aws_cloudfront_distribution.dashboard[0].arn]
+      }
     }
-    condition {
-      test     = "StringEquals"
-      variable = "AWS:SourceArn"
-      values   = [aws_cloudfront_distribution.dashboard.arn]
+  }
+  dynamic "statement" {
+    for_each = var.enable_cloudfront ? [] : [1]
+    content {
+      actions   = ["s3:GetObject"]
+      resources = ["${aws_s3_bucket.dashboard.arn}/*"]
+      principals {
+        type        = "*"
+        identifiers = ["*"]
+      }
     }
   }
 }
@@ -104,4 +128,8 @@ resource "aws_s3_bucket_policy" "dashboard" {
   bucket     = aws_s3_bucket.dashboard.id
   policy     = data.aws_iam_policy_document.dashboard_bucket.json
   depends_on = [aws_s3_bucket_public_access_block.dashboard]
+}
+
+locals {
+  dashboard_url = var.enable_cloudfront ? "https://${aws_cloudfront_distribution.dashboard[0].domain_name}" : "http://${aws_s3_bucket_website_configuration.dashboard.website_endpoint}"
 }

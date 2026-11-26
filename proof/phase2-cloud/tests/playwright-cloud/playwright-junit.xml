@@ -1,0 +1,6 @@
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="45.882555">
+<testsuite name="demo-story.spec.ts" timestamp="2026-11-26T11:50:40.546Z" hostname="" tests="1" failures="0" skipped="0" time="44.549" errors="0">
+<testcase name="demo story: merchant creates checkout, shopper pays, dashboard settles, webhook arrives, refund" classname="demo-story.spec.ts" time="44.549">
+</testcase>
+</testsuite>
+</testsuites>

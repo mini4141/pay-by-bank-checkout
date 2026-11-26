@@ -1,0 +1,50 @@
+[
+    {
+        "service": "api",
+        "status": "ACTIVE",
+        "desired": 1,
+        "running": 1,
+        "launchType": "FARGATE",
+        "taskDefinition": "arn:aws:ecs:ap-southeast-2:<ACCOUNT_ID>:task-definition/pay-by-bank-api:2"
+    },
+    {
+        "service": "worker",
+        "status": "ACTIVE",
+        "desired": 1,
+        "running": 1,
+        "launchType": "FARGATE",
+        "taskDefinition": "arn:aws:ecs:ap-southeast-2:<ACCOUNT_ID>:task-definition/pay-by-bank-worker:1"
+    },
+    {
+        "service": "mockbank",
+        "status": "ACTIVE",
+        "desired": 1,
+        "running": 1,
+        "launchType": "FARGATE",
+        "taskDefinition": "arn:aws:ecs:ap-southeast-2:<ACCOUNT_ID>:task-definition/pay-by-bank-mockbank:1"
+    },
+    {
+        "service": "receiver",
+        "status": "ACTIVE",
+        "desired": 1,
+        "running": 1,
+        "launchType": "FARGATE",
+        "taskDefinition": "arn:aws:ecs:ap-southeast-2:<ACCOUNT_ID>:task-definition/pay-by-bank-receiver:1"
+    },
+    {
+        "service": "checkout",
+        "status": "ACTIVE",
+        "desired": 1,
+        "running": 1,
+        "launchType": "FARGATE",
+        "taskDefinition": "arn:aws:ecs:ap-southeast-2:<ACCOUNT_ID>:task-definition/pay-by-bank-checkout:1"
+    },
+    {
+        "service": "temporal",
+        "status": "ACTIVE",
+        "desired": 1,
+        "running": 1,
+        "launchType": "FARGATE",
+        "taskDefinition": "arn:aws:ecs:ap-southeast-2:<ACCOUNT_ID>:task-definition/pay-by-bank-temporal:1"
+    }
+]

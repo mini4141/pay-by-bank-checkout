@@ -1,0 +1,15 @@
+2026-11-26T11:46:30 {"time":"2026-11-26T11:46:30.256183433Z","level":"INFO","msg":"ok","service":"mockbank","op":"consent","key":"pay_834fec3cfaa9bc42c5c0","amount_minor":null}
+2026-11-26T11:46:30 {"time":"2026-11-26T11:46:30.258292537Z","level":"INFO","msg":"ok","service":"mockbank","op":"reserve","key":"pay_834fec3cfaa9bc42c5c0","amount_minor":1200}
+2026-11-26T11:46:30 {"time":"2026-11-26T11:46:30.286485831Z","level":"WARN","msg":"injected_failure","service":"mockbank","op":"debit","key":"pay_834fec3cfaa9bc42c5c0","consecutive":1}
+2026-11-26T11:46:31 {"time":"2026-11-26T11:46:31.299531723Z","level":"WARN","msg":"injected_failure","service":"mockbank","op":"debit","key":"pay_834fec3cfaa9bc42c5c0","consecutive":2}
+2026-11-26T11:46:33 {"time":"2026-11-26T11:46:33.311045966Z","level":"WARN","msg":"injected_failure","service":"mockbank","op":"debit","key":"pay_834fec3cfaa9bc42c5c0","consecutive":3}
+2026-11-26T11:46:37 {"time":"2026-11-26T11:46:37.322437433Z","level":"INFO","msg":"ok","service":"mockbank","op":"debit","key":"pay_834fec3cfaa9bc42c5c0","amount_minor":1200}
+2026-11-26T11:47:08 {"time":"2026-11-26T11:47:08.479325742Z","level":"INFO","msg":"ok","service":"mockbank","op":"credit","key":"pay_834fec3cfaa9bc42c5c0","amount_minor":1200}
+2026-11-26T11:48:26 {"time":"2026-11-26T11:48:26.314363726Z","level":"INFO","msg":"ok","service":"mockbank","op":"consent","key":"pay_2fc6ec4bfc86d08eec63","amount_minor":null}
+2026-11-26T11:48:26 {"time":"2026-11-26T11:48:26.316113081Z","level":"INFO","msg":"ok","service":"mockbank","op":"reserve","key":"pay_2fc6ec4bfc86d08eec63","amount_minor":1200}
+2026-11-26T11:48:26 {"time":"2026-11-26T11:48:26.342524392Z","level":"INFO","msg":"ok","service":"mockbank","op":"debit","key":"pay_2fc6ec4bfc86d08eec63","amount_minor":1200}
+2026-11-26T11:48:56 {"time":"2026-11-26T11:48:56.374725087Z","level":"INFO","msg":"ok","service":"mockbank","op":"credit","key":"pay_2fc6ec4bfc86d08eec63","amount_minor":1200}
+2026-11-26T11:50:50 {"time":"2026-11-26T11:50:50.317476785Z","level":"INFO","msg":"ok","service":"mockbank","op":"consent","key":"pay_0360d561258cf328b8fc","amount_minor":null}
+2026-11-26T11:50:50 {"time":"2026-11-26T11:50:50.319193971Z","level":"INFO","msg":"ok","service":"mockbank","op":"reserve","key":"pay_0360d561258cf328b8fc","amount_minor":1200}
+2026-11-26T11:50:50 {"time":"2026-11-26T11:50:50.345772853Z","level":"INFO","msg":"ok","service":"mockbank","op":"debit","key":"pay_0360d561258cf328b8fc","amount_minor":1200}
+2026-11-26T11:51:24 {"time":"2026-11-26T11:51:24.811887785Z","level":"INFO","msg":"ok","service":"mockbank","op":"credit","key":"pay_0360d561258cf328b8fc","amount_minor":1200}

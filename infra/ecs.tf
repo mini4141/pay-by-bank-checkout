@@ -51,7 +51,9 @@ resource "aws_iam_role_policy" "exec_ssm" {
 
 locals {
   alb_origin = "http://${aws_lb.main.dns_name}"
-  db_secret  = [{ name = "DATABASE_URL", valueFrom = aws_ssm_parameter.database_url.arn }]
+  # Browser origin of the dashboard (S3 website or CloudFront), allowed by the API CORS policy.
+  dashboard_origin = "http://${aws_s3_bucket_website_configuration.dashboard.website_endpoint}"
+  db_secret        = [{ name = "DATABASE_URL", valueFrom = aws_ssm_parameter.database_url.arn }]
 
   services = {
     temporal = {
@@ -75,7 +77,7 @@ locals {
       env = {
         TEMPORAL_ADDRESS     = "temporal.pay.local:7233"
         CHECKOUT_BASE_URL    = local.alb_origin
-        CORS_ALLOWED_ORIGINS = local.alb_origin
+        CORS_ALLOWED_ORIGINS = "${local.alb_origin},${local.dashboard_origin}"
         API_ADDR             = ":8080"
       }
       secrets = local.db_secret

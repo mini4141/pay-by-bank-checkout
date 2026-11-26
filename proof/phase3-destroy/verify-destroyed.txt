@@ -1,0 +1,32 @@
+verify-destroyed: 2026-11-26T11:58:18Z region=ap-southeast-2
+OK    ECS cluster: none
+OK    ALB: none
+OK    target groups: none
+OK    RDS instance: none
+OK    CloudFront distribution: none
+OK    ECR repositories: none
+OK    Cloud Map namespace: none
+OK    S3 dashboard bucket: none
+OK    NAT gateways (tagged): none
+OK    VPC (tagged): none
+OK    Elastic IPs (tagged): none
+OK    CloudWatch log groups: none
+OK    SSM parameters: none
+
+Tagging API (Project=pay-by-bank-checkout), informational - it can lag for a few minutes:
+  arn:aws:ecs:ap-southeast-2:<ACCOUNT_ID>:cluster/pay-by-bank
+  arn:aws:ecs:ap-southeast-2:<ACCOUNT_ID>:service/pay-by-bank/worker
+  arn:aws:ecs:ap-southeast-2:<ACCOUNT_ID>:task-definition/pay-by-bank-checkout:1
+  arn:aws:ecs:ap-southeast-2:<ACCOUNT_ID>:task-definition/pay-by-bank-worker:1
+  arn:aws:ecs:ap-southeast-2:<ACCOUNT_ID>:service/pay-by-bank/checkout
+  arn:aws:ecs:ap-southeast-2:<ACCOUNT_ID>:service/pay-by-bank/api
+  arn:aws:ecs:ap-southeast-2:<ACCOUNT_ID>:service/pay-by-bank/temporal
+  arn:aws:ecs:ap-southeast-2:<ACCOUNT_ID>:task-definition/pay-by-bank-temporal:1
+  arn:aws:ecs:ap-southeast-2:<ACCOUNT_ID>:task-definition/pay-by-bank-api:2
+  arn:aws:ecs:ap-southeast-2:<ACCOUNT_ID>:task-definition/pay-by-bank-mockbank:1
+  arn:aws:ecs:ap-southeast-2:<ACCOUNT_ID>:service/pay-by-bank/receiver
+  arn:aws:ecs:ap-southeast-2:<ACCOUNT_ID>:task-definition/pay-by-bank-receiver:1
+  arn:aws:ecs:ap-southeast-2:<ACCOUNT_ID>:task-definition/pay-by-bank-api:1
+  arn:aws:ecs:ap-southeast-2:<ACCOUNT_ID>:service/pay-by-bank/mockbank
+
+RESULT: nothing billable remains

@@ -1,0 +1,11 @@
+.git
+.local
+proof
+infra
+e2e
+docs
+**/node_modules
+**/.svelte-kit
+**/dist
+**/build
+*.exe

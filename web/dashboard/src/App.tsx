@@ -3,7 +3,7 @@ import type { Checkout } from '@pay/gen/checkout_pb';
 import type { Payment } from '@pay/gen/common_pb';
 import QRCode from 'qrcode';
 import { useEffect, useMemo, useState, type FormEvent } from 'react';
-import { createApi, formatMoney, type Api } from './api';
+import { createApi, formatMoney, newKey, type Api } from './api';
 import { PaymentsTable } from './PaymentsTable';
 
 const KEY = 'merchant-api-key';
@@ -131,7 +131,7 @@ function NewCheckout({ api }: { api: Api }) {
         amount: { amountMinor: BigInt(amount), currency: 'JPY' },
         reference,
         returnUrl: window.location.origin,
-        idempotencyKey: crypto.randomUUID()
+        idempotencyKey: newKey()
       });
       setCreated(r.checkout ?? null);
       setQr(await QRCode.toDataURL(r.checkout!.checkoutUrl, { margin: 1, width: 160 }));
@@ -179,7 +179,7 @@ function Detail({ api, payment }: { api: Api; payment: Payment }) {
   async function refund() {
     setError('');
     try {
-      await api.payment.refundPayment({ paymentId: payment.id, idempotencyKey: crypto.randomUUID() });
+      await api.payment.refundPayment({ paymentId: payment.id, idempotencyKey: newKey() });
     } catch (e) {
       setError(ConnectError.from(e).message);
     }

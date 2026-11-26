@@ -19,11 +19,11 @@ output "temporal_ui_url" {
 }
 
 output "dashboard_url" {
-  value = "https://${aws_cloudfront_distribution.dashboard.domain_name}"
+  value = local.dashboard_url
 }
 
 output "cloudfront_distribution_id" {
-  value = aws_cloudfront_distribution.dashboard.id
+  value = var.enable_cloudfront ? aws_cloudfront_distribution.dashboard[0].id : ""
 }
 
 output "dashboard_bucket" {

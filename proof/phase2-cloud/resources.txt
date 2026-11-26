@@ -1,0 +1,107 @@
+# Deployed AWS resources (terraform outputs and tag query)
+alb_dns_name = "pay-by-bank-236082272.ap-southeast-2.elb.amazonaws.com"
+api_url = "http://pay-by-bank-236082272.ap-southeast-2.elb.amazonaws.com/api"
+checkout_url = "http://pay-by-bank-236082272.ap-southeast-2.elb.amazonaws.com"
+cloudfront_distribution_id = ""
+cluster_name = "pay-by-bank"
+dashboard_bucket = "pay-by-bank-dashboard-fd445104"
+dashboard_url = "http://pay-by-bank-dashboard-fd445104.s3-website-ap-southeast-2.amazonaws.com"
+db_endpoint = "pay-by-bank.ct6cqcowm9oe.ap-southeast-2.rds.amazonaws.com"
+ecr_registry = "<ACCOUNT_ID>.dkr.ecr.ap-southeast-2.amazonaws.com"
+ecr_repositories = {
+  "api" = "<ACCOUNT_ID>.dkr.ecr.ap-southeast-2.amazonaws.com/pay-by-bank/api"
+  "checkout" = "<ACCOUNT_ID>.dkr.ecr.ap-southeast-2.amazonaws.com/pay-by-bank/checkout"
+  "mockbank" = "<ACCOUNT_ID>.dkr.ecr.ap-southeast-2.amazonaws.com/pay-by-bank/mockbank"
+  "receiver" = "<ACCOUNT_ID>.dkr.ecr.ap-southeast-2.amazonaws.com/pay-by-bank/receiver"
+  "temporal" = "<ACCOUNT_ID>.dkr.ecr.ap-southeast-2.amazonaws.com/pay-by-bank/temporal"
+  "worker" = "<ACCOUNT_ID>.dkr.ecr.ap-southeast-2.amazonaws.com/pay-by-bank/worker"
+}
+migrate_task_definition = "pay-by-bank-api"
+receiver_url = "http://pay-by-bank-236082272.ap-southeast-2.elb.amazonaws.com/receiver"
+subnet_ids = [
+  "subnet-0e8031f25220eb087",
+  "subnet-00ec3837194e83b93",
+]
+tasks_security_group_id = "sg-0abb0c7e2ed61f8b9"
+temporal_ui_url = "http://pay-by-bank-236082272.ap-southeast-2.elb.amazonaws.com:8233"
+
+# Resources tagged Project=pay-by-bank-checkout
+arn:aws:ec2:ap-southeast-2:<ACCOUNT_ID>:internet-gateway/igw-007536f001b7db18c
+arn:aws:ec2:ap-southeast-2:<ACCOUNT_ID>:route-table/rtb-04ee77a52b2411948
+arn:aws:ec2:ap-southeast-2:<ACCOUNT_ID>:security-group/sg-0173a2bdbf04436a8
+arn:aws:ec2:ap-southeast-2:<ACCOUNT_ID>:security-group/sg-0abb0c7e2ed61f8b9
+arn:aws:ec2:ap-southeast-2:<ACCOUNT_ID>:security-group/sg-0dfe4957ed1726d8c
+arn:aws:ec2:ap-southeast-2:<ACCOUNT_ID>:subnet/subnet-00ec3837194e83b93
+arn:aws:ec2:ap-southeast-2:<ACCOUNT_ID>:subnet/subnet-0e8031f25220eb087
+arn:aws:ec2:ap-southeast-2:<ACCOUNT_ID>:vpc/vpc-07d972fc4607fc708
+arn:aws:ecr:ap-southeast-2:<ACCOUNT_ID>:repository/pay-by-bank/api
+arn:aws:ecr:ap-southeast-2:<ACCOUNT_ID>:repository/pay-by-bank/checkout
+arn:aws:ecr:ap-southeast-2:<ACCOUNT_ID>:repository/pay-by-bank/mockbank
+arn:aws:ecr:ap-southeast-2:<ACCOUNT_ID>:repository/pay-by-bank/receiver
+arn:aws:ecr:ap-southeast-2:<ACCOUNT_ID>:repository/pay-by-bank/temporal
+arn:aws:ecr:ap-southeast-2:<ACCOUNT_ID>:repository/pay-by-bank/worker
+arn:aws:ecs:ap-southeast-2:<ACCOUNT_ID>:cluster/pay-by-bank
+arn:aws:ecs:ap-southeast-2:<ACCOUNT_ID>:service/pay-by-bank/api
+arn:aws:ecs:ap-southeast-2:<ACCOUNT_ID>:service/pay-by-bank/checkout
+arn:aws:ecs:ap-southeast-2:<ACCOUNT_ID>:service/pay-by-bank/mockbank
+arn:aws:ecs:ap-southeast-2:<ACCOUNT_ID>:service/pay-by-bank/receiver
+arn:aws:ecs:ap-southeast-2:<ACCOUNT_ID>:service/pay-by-bank/temporal
+arn:aws:ecs:ap-southeast-2:<ACCOUNT_ID>:service/pay-by-bank/worker
+arn:aws:ecs:ap-southeast-2:<ACCOUNT_ID>:task-definition/pay-by-bank-api:1
+arn:aws:ecs:ap-southeast-2:<ACCOUNT_ID>:task-definition/pay-by-bank-api:2
+arn:aws:ecs:ap-southeast-2:<ACCOUNT_ID>:task-definition/pay-by-bank-checkout:1
+arn:aws:ecs:ap-southeast-2:<ACCOUNT_ID>:task-definition/pay-by-bank-mockbank:1
+arn:aws:ecs:ap-southeast-2:<ACCOUNT_ID>:task-definition/pay-by-bank-receiver:1
+arn:aws:ecs:ap-southeast-2:<ACCOUNT_ID>:task-definition/pay-by-bank-temporal:1
+arn:aws:ecs:ap-southeast-2:<ACCOUNT_ID>:task-definition/pay-by-bank-worker:1
+arn:aws:elasticloadbalancing:ap-southeast-2:<ACCOUNT_ID>:listener-rule/app/pay-by-bank/db218fd7861a95fa/e581d8b3638ba81b/d7e4969e5b88b7dd
+arn:aws:elasticloadbalancing:ap-southeast-2:<ACCOUNT_ID>:listener-rule/app/pay-by-bank/db218fd7861a95fa/e581d8b3638ba81b/e5cc87c129308d53
+arn:aws:elasticloadbalancing:ap-southeast-2:<ACCOUNT_ID>:listener-rule/app/pay-by-bank/db218fd7861a95fa/e581d8b3638ba81b/e7542d9b3635bd3c
+arn:aws:elasticloadbalancing:ap-southeast-2:<ACCOUNT_ID>:listener/app/pay-by-bank/db218fd7861a95fa/cc7d042135b20ff0
+arn:aws:elasticloadbalancing:ap-southeast-2:<ACCOUNT_ID>:listener/app/pay-by-bank/db218fd7861a95fa/e581d8b3638ba81b
+arn:aws:elasticloadbalancing:ap-southeast-2:<ACCOUNT_ID>:loadbalancer/app/pay-by-bank/db218fd7861a95fa
+arn:aws:elasticloadbalancing:ap-southeast-2:<ACCOUNT_ID>:targetgroup/pay-by-bank-api/fb0c666aa5ecc4da
+arn:aws:elasticloadbalancing:ap-southeast-2:<ACCOUNT_ID>:targetgroup/pay-by-bank-checkout/35c888db014a61d1
+arn:aws:elasticloadbalancing:ap-southeast-2:<ACCOUNT_ID>:targetgroup/pay-by-bank-receiver/8a1f14e80a7d3775
+arn:aws:elasticloadbalancing:ap-southeast-2:<ACCOUNT_ID>:targetgroup/pay-by-bank-temporal/a29ff994f9b0b2de
+arn:aws:logs:ap-southeast-2:<ACCOUNT_ID>:log-group:/ecs/pay-by-bank/api
+arn:aws:logs:ap-southeast-2:<ACCOUNT_ID>:log-group:/ecs/pay-by-bank/checkout
+arn:aws:logs:ap-southeast-2:<ACCOUNT_ID>:log-group:/ecs/pay-by-bank/mockbank
+arn:aws:logs:ap-southeast-2:<ACCOUNT_ID>:log-group:/ecs/pay-by-bank/receiver
+arn:aws:logs:ap-southeast-2:<ACCOUNT_ID>:log-group:/ecs/pay-by-bank/temporal
+arn:aws:logs:ap-southeast-2:<ACCOUNT_ID>:log-group:/ecs/pay-by-bank/worker
+arn:aws:rds:ap-southeast-2:<ACCOUNT_ID>:db:pay-by-bank
+arn:aws:rds:ap-southeast-2:<ACCOUNT_ID>:subgrp:pay-by-bank
+arn:aws:s3:::pay-by-bank-dashboard-fd445104
+arn:aws:servicediscovery:ap-southeast-2:<ACCOUNT_ID>:namespace/ns-o4j3bar5uzbm4557
+arn:aws:servicediscovery:ap-southeast-2:<ACCOUNT_ID>:service/srv-lup6ynnqxll2vwv7
+arn:aws:servicediscovery:ap-southeast-2:<ACCOUNT_ID>:service/srv-o3rc4kpjpc2oaibf
+arn:aws:servicediscovery:ap-southeast-2:<ACCOUNT_ID>:service/srv-t2eww3pjrp3te4tu
+arn:aws:servicediscovery:ap-southeast-2:<ACCOUNT_ID>:service/srv-vn2e6iwpzypf54kd
+arn:aws:ssm:ap-southeast-2:<ACCOUNT_ID>:parameter/pay-by-bank/database-url
+
+# RDS
+-----------------------------
+|    DescribeDBInstances    |
++----------+----------------+
+|  class   |  db.t4g.micro  |
+|  engine  |  postgres      |
+|  id      |  pay-by-bank   |
+|  multiAZ |  False         |
+|  public  |  False         |
+|  status  |  available     |
+|  version |  17.12         |
++----------+----------------+
+# Dashboard hosting
+(CloudFront is off: the AWS account needs Support verification. Dashboard is served from S3 website hosting, see ADR 0002.)
+----------------------------
+|     GetBucketWebsite     |
++--------------------------+
+||      ErrorDocument     ||
+|+-------+----------------+|
+||  Key  |  index.html    ||
+|+-------+----------------+|
+||      IndexDocument     ||
+|+---------+--------------+|
+||  Suffix |  index.html  ||
+|+---------+--------------+|

@@ -26,20 +26,20 @@ Resume from the first unticked item. Phases follow CLAUDE.md §5.
 - [x] `scripts/test-all.sh` green, CI green on main, proof index complete
 
 ## Phase 2: AWS (SPECS §10)
-- [ ] screenshots 01-cloud-checkout-settled, 02-cloud-dashboard, 03-cloud-temporal-ui
-- [ ] logs: ecs-services.json, cloudwatch-worker.log, resources.txt
-- [ ] tests/playwright-cloud/
+- [x] screenshots 01-cloud-checkout-settled, 02-cloud-dashboard, 03-cloud-temporal-ui
+- [x] logs: ecs-services.json, cloudwatch-worker.log, resources.txt
+- [x] tests/playwright-cloud/
 
 ## Phase 3: destroy (SPECS §11)
-- [ ] `terraform destroy` done
-- [ ] `verify-destroyed.sh` shows nothing billable (ECS cluster, ALB, RDS, CloudFront, ECR, Cloud Map)
+- [x] `terraform destroy` done
+- [x] `verify-destroyed.sh` shows nothing billable (ECS cluster, ALB, RDS, CloudFront, ECR, Cloud Map)
 
 ## Phase 4: write-up
-- [ ] `docs/PORTFOLIO.md`, README final, `docs/AI_USAGE.md`, everything pushed
+- [x] `docs/PORTFOLIO.md`, README final, `docs/AI_USAGE.md`, everything pushed
 
 ## Definition of done (CLAUDE.md §12)
-- [ ] Every stack item used in running code
-- [ ] Phase 1 proof complete, tests green locally and in CI
-- [ ] Phase 2 proof complete
-- [ ] Phase 3 everything destroyed
-- [ ] PORTFOLIO.md and README written, committed, pushed
+- [x] Every stack item used in running code
+- [x] Phase 1 proof complete, tests green locally and in CI
+- [x] Phase 2 proof complete
+- [x] Phase 3 everything destroyed
+- [x] PORTFOLIO.md and README written, committed, pushed

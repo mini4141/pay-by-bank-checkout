@@ -1,0 +1,23 @@
+
+Running 1 test using 1 worker
+
+  ok 1 tests\demo-story.spec.ts:24:1 › demo story: merchant creates checkout, shopper pays, dashboard settles, webhook arrives, refund (44.5s)
+
+  1 passed (45.9s)
+payment pay_834fec3cfaa9bc42c5c0: 3 debit retries, workflow payment-chk_60b5eef900f2552f0228
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+locator.waitFor: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for getByText('payment-chk_60b5eef900f2552f0228').first() to be visible[22m
+
+    at C:\Users\ThinkPad\Pictures\mmvie-v2\reqs\9-pay-by-bank-checkout\e2e\scripts\retry-shot.mjs:24:50 {
+  log: [
+    "  - waiting for getByText('payment-chk_60b5eef900f2552f0228').first() to be visible"
+  ],
+  name: 'TimeoutError'
+}
+
+Node.js v24.12.0

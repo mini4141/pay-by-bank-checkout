@@ -14,3 +14,7 @@ Add a second CloudFront origin (the ALB, HTTP-only) with a `/api/*` behaviour (c
 
 - Server-streaming RPCs pass through CloudFront. Streams are kept short (the server ends them after 20 s and clients re-subscribe), which keeps them under CloudFront's origin read timeout.
 - No custom domain or certificate is needed; the whole stack stays destroyable with Terraform.
+
+## Update: account not verified for CloudFront
+
+During the first deploy AWS rejected `CreateDistribution` with `403 AccessDenied: Your account must be verified before you can add new CloudFront resources`. Only AWS Support can lift that. The distribution therefore sits behind the Terraform variable `enable_cloudfront` (default `false`). When it is off, the dashboard is served by S3 static website hosting (public-read bucket, plain HTTP) and calls the ALB API directly; the API's CORS policy allows the S3 website origin. Because both are HTTP, there is no mixed-content problem and the CloudFront `/api/*` proxy is not needed.

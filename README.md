@@ -27,7 +27,7 @@ flowchart LR
 | Backend | Go, ConnectRPC, Protobuf managed with `buf` (lint, breaking, generate for Go + TS), server-streaming `WatchPayment` |
 | Workflows | Temporal Go SDK: `PaymentWorkflow`, `RefundWorkflow`, retries, signal, query |
 | Data | PostgreSQL 17, `pgx` + `sqlc`, `goose` migrations |
-| Cloud | AWS ECS Fargate, ALB, RDS, ECR, CloudWatch, S3 + CloudFront, Cloud Map, all in Terraform |
+| Cloud | AWS ECS Fargate, ALB, RDS, ECR, CloudWatch, S3 (CloudFront optional), Cloud Map, all in Terraform |
 | CI | GitHub Actions (buf, go test, svelte-check, vitest, builds, Playwright e2e) |
 
 ## Quickstart (local)

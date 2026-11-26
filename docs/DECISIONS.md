@@ -8,3 +8,4 @@ One line each: date, decision, reason.
 - 2026-11-26 Temporal dev server runs from the official `temporalio/temporal` image (no host CLI install needed), locally and on Fargate.
 - 2026-11-26 Status propagation uses a status table (`payment_events`) written by activities and polled by the streaming RPCs; see ADR 0001.
 - 2026-11-26 Dependencies (Temporal SDK / pgx) pull `go.mod` to `go 1.26.0`; Docker builder image is `golang:1.26-alpine`. Reason: library minimum, newer than the Go 1.25 floor in the rules.
+- 2026-11-26 CloudFront could not be created: AWS returned 403 "Your account must be verified before you can add new CloudFront resources" (needs AWS Support). Dashboard is served from S3 static website hosting instead (public-read bucket, API CORS allows its origin); CloudFront stays in Terraform behind `enable_cloudfront` (default false). See ADR 0002.

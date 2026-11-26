@@ -29,3 +29,9 @@ export function formatMoney(amountMinor: bigint | number, currency: string): str
   const digits = fmt.resolvedOptions().maximumFractionDigits ?? 2;
   return fmt.format(Number(amountMinor) / 10 ** digits);
 }
+
+/** Idempotency key. crypto.randomUUID needs a secure context; getRandomValues works over plain HTTP too. */
+export function newKey(): string {
+  const b = crypto.getRandomValues(new Uint8Array(16));
+  return Array.from(b, (x) => x.toString(16).padStart(2, '0')).join('');
+}

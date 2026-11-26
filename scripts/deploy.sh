@@ -38,9 +38,11 @@ docker tag temporalio/temporal:1.10.1 "$REGISTRY/pay-by-bank/temporal:latest"
 docker push -q "$REGISTRY/pay-by-bank/temporal:latest" >/dev/null
 
 echo "==> upload merchant dashboard to S3"
-VITE_API_URL=/api pnpm --filter @pay/dashboard build
+# CloudFront (when enabled) serves /api same-origin; otherwise the SPA calls the ALB directly.
+API_BASE=/api; [ -n "$CF_ID" ] || API_BASE="$ALB/api"
+VITE_API_URL="$API_BASE" pnpm --filter @pay/dashboard build
 aws s3 sync web/dashboard/dist "s3://$BUCKET" --delete --only-show-errors
-aws cloudfront create-invalidation --distribution-id "$CF_ID" --paths '/*' >/dev/null
+[ -z "$CF_ID" ] || aws cloudfront create-invalidation --distribution-id "$CF_ID" --paths '/*' >/dev/null
 
 echo "==> run migrations (one-off ECS task)"
 SUBNETS="$("${TF[@]}" output -json subnet_ids | tr -d '[]" \r\n')"

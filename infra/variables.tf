@@ -18,3 +18,9 @@ variable "desired_count" {
   default     = 0
   description = "0 while images are being pushed and migrations run, then 1."
 }
+
+variable "enable_cloudfront" {
+  type        = bool
+  default     = false
+  description = "Front the dashboard with CloudFront. Off by default: new AWS accounts must be verified by AWS Support before they can create distributions."
+}
