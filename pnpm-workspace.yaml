@@ -2,3 +2,5 @@ packages:
   - gen/ts
   - web/*
   - e2e
+allowBuilds:
+  esbuild: true

@@ -1,0 +1,94 @@
+ Image pay-by-bank-migrate Building 
+ Image pay-by-bank-mockbank Building 
+ Image pay-by-bank-dashboard Building 
+ Image pay-by-bank-api Building 
+ Image pay-by-bank-receiver Building 
+ Image pay-by-bank-checkout Building 
+ Image pay-by-bank-worker Building 
+ Image pay-by-bank-mockbank Built 
+ Image pay-by-bank-checkout Built 
+ Image pay-by-bank-migrate Built 
+ Image pay-by-bank-api Built 
+ Image pay-by-bank-dashboard Built 
+ Image pay-by-bank-receiver Built 
+ Image pay-by-bank-worker Built 
+ Container pay-by-bank-postgres-1 Running 
+ Container pay-by-bank-temporal-1 Running 
+ Container pay-by-bank-mockbank-1 Running 
+ Container pay-by-bank-receiver-1 Running 
+ Container pay-by-bank-dashboard-1 Running 
+ Container pay-by-bank-worker-1 Running 
+ Container pay-by-bank-api-1 Running 
+ Container pay-by-bank-checkout-1 Recreate 
+ Container pay-by-bank-checkout-1 Recreated 
+ Container pay-by-bank-checkout-1 Starting 
+ Container pay-by-bank-postgres-1 Waiting 
+ Container pay-by-bank-checkout-1 Started 
+ Container pay-by-bank-postgres-1 Healthy 
+ Container pay-by-bank-migrate-1 Starting 
+ Container pay-by-bank-migrate-1 Started 
+ Container pay-by-bank-migrate-1 Waiting 
+ Container pay-by-bank-migrate-1 Waiting 
+ Container pay-by-bank-migrate-1 Waiting 
+ Container pay-by-bank-temporal-1 Waiting 
+ Container pay-by-bank-temporal-1 Waiting 
+ Container pay-by-bank-migrate-1 Waiting 
+ Container pay-by-bank-migrate-1 Exited 
+ Container pay-by-bank-migrate-1 Exited 
+ Container pay-by-bank-temporal-1 Healthy 
+ Container pay-by-bank-migrate-1 Exited 
+ Container pay-by-bank-migrate-1 Exited 
+ Container pay-by-bank-temporal-1 Healthy 
+=== buf lint
+--- buf lint: ok
+=== buf generate is clean
+--- buf generate is clean: ok
+=== go vet
+--- go vet: ok
+=== go test (unit + sqlc integration)
+--- go test (unit + sqlc integration): ok
+=== svelte-check
+$ svelte-kit sync && svelte-check --tsconfig ./tsconfig.json
+<ACCOUNT_ID>1 START "c:\\Users\\ThinkPad\\Pictures\\mmvie-v2\\reqs\\9-pay-by-bank-checkout\\web\\checkout"
+<ACCOUNT_ID>7 COMPLETED 456 FILES 0 ERRORS 0 WARNINGS 0 FILES_WITH_PROBLEMS
+--- svelte-check: ok
+=== vitest (svelte)
+$ vitest run
+
+[1m[46m RUN [49m[22m [36mv3.2.7 [39m[90mC:/Users/ThinkPad/Pictures/mmvie-v2/reqs/9-pay-by-bank-checkout/web/checkout[39m
+
+ [32m✓[39m src/lib/Timeline.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 80[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m1 passed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[32m1 passed[39m[22m[90m (1)[39m
+[2m   Start at [22m 18:15:34
+[2m   Duration [22m 8.93s[2m (transform 1.76s, setup 3.00s, collect 166ms, tests 80ms, environment 4.57s, prepare 425ms)[22m
+
+JUNIT report written to C:/Users/ThinkPad/Pictures/mmvie-v2/reqs/9-pay-by-bank-checkout/.local/test-results/vitest-checkout.xml
+--- vitest (svelte): ok
+=== tsc (react)
+$ tsc --noEmit
+--- tsc (react): ok
+=== vitest (react)
+$ vitest run
+
+[1m[46m RUN [49m[22m [36mv3.2.7 [39m[90mC:/Users/ThinkPad/Pictures/mmvie-v2/reqs/9-pay-by-bank-checkout/web/dashboard[39m
+
+ [32m✓[39m src/PaymentsTable.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 90[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m1 passed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[32m1 passed[39m[22m[90m (1)[39m
+[2m   Start at [22m 18:15:51
+[2m   Duration [22m 7.42s[2m (transform 171ms, setup 0ms, collect 1.67s, tests 90ms, environment 4.45s, prepare 427ms)[22m
+
+JUNIT report written to C:/Users/ThinkPad/Pictures/mmvie-v2/reqs/9-pay-by-bank-checkout/.local/test-results/vitest-dashboard.xml
+--- vitest (react): ok
+=== playwright e2e
+
+Running 1 test using 1 worker
+
+  ok 1 tests\demo-story.spec.ts:24:1 › demo story: merchant creates checkout, shopper pays, dashboard settles, webhook arrives, refund (15.5s)
+
+  1 passed (17.3s)
+--- playwright e2e: ok
+ALL GREEN

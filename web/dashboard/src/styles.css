@@ -1,0 +1,36 @@
+:root { font-family: system-ui, sans-serif; font-size: 14px; color: #0f172a; background: #f1f5f9; }
+body { margin: 0; }
+h1 { font-size: 1.25rem; margin: 0; }
+h2 { font-size: 1rem; margin: 0.75rem 0 0.5rem; }
+h3 { font-size: 0.875rem; margin: 0.75rem 0 0.25rem; }
+.app { max-width: 1280px; margin: 0 auto; padding: 0.75rem; }
+header { display: flex; align-items: center; gap: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid #cbd5e1; }
+header .tile { margin-left: auto; background: white; padding: 0.4rem 0.8rem; border-radius: 6px; }
+.grid { display: grid; grid-template-columns: 3fr 2fr; gap: 1rem; align-items: start; }
+.card { background: white; border-radius: 6px; padding: 0.75rem; box-shadow: 0 1px 2px #0001; margin-bottom: 0.75rem; }
+table { width: 100%; border-collapse: collapse; background: white; border-radius: 6px; }
+th, td { text-align: left; padding: 0.3rem 0.5rem; border-bottom: 1px solid #e2e8f0; }
+th { color: #475569; font-weight: 600; }
+tbody tr { cursor: pointer; }
+tr.selected { background: #dbeafe; }
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+.mono { font-family: ui-monospace, monospace; font-size: 0.8rem; }
+.muted { color: #475569; }
+.error { color: #7f1d1d; background: #fee2e2; padding: 0.4rem 0.6rem; border-radius: 4px; }
+.badge { padding: 0.1rem 0.45rem; border-radius: 999px; font-size: 0.75rem; background: #e2e8f0; }
+.badge.settled { background: #bbf7d0; color: #14532d; }
+.badge.refunded, .badge.refunding { background: #fde68a; color: #78350f; }
+.badge.failed, .badge.cancelled { background: #fecaca; color: #7f1d1d; }
+button { font: inherit; padding: 0.4rem 0.8rem; border: 0; border-radius: 4px; background: #1d4ed8; color: white; cursor: pointer; }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+button.link { background: none; color: #1d4ed8; text-decoration: underline; }
+input { font: inherit; padding: 0.3rem 0.5rem; border: 1px solid #94a3b8; border-radius: 4px; display: block; }
+label { display: grid; gap: 0.2rem; }
+form.inline { display: flex; gap: 0.75rem; align-items: end; flex-wrap: wrap; }
+form.login { max-width: 22rem; margin: 6rem auto; display: grid; gap: 0.75rem; }
+.created { display: flex; gap: 1rem; align-items: center; margin-top: 0.75rem; }
+.events { list-style: none; padding: 0; margin: 0; }
+.events li { padding: 0.2rem 0; border-bottom: 1px dashed #e2e8f0; }
+.events li.retry { color: #78350f; }
+.events li.failed { color: #7f1d1d; }
+:focus-visible { outline: 3px solid #f59e0b; outline-offset: 2px; }

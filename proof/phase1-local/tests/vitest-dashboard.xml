@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites name="vitest tests" tests="1" failures="0" errors="0" time="0.089741">
+    <testsuite name="src/PaymentsTable.test.tsx" timestamp="2026-11-26T11:15:59.089Z" hostname="DESKTOP-LSTSC86" tests="1" failures="0" errors="0" skipped="0" time="0.089741">
+        <testcase classname="src/PaymentsTable.test.tsx" name="PaymentsTable &gt; renders one row per payment with formatted amount and status" time="0.0873184">
+        </testcase>
+    </testsuite>
+</testsuites>

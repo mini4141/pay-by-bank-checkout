@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites name="vitest tests" tests="1" failures="0" errors="0" time="0.079549">
+    <testsuite name="src/lib/Timeline.test.ts" timestamp="2026-11-26T11:15:43.986Z" hostname="DESKTOP-LSTSC86" tests="1" failures="0" errors="0" skipped="0" time="0.079549">
+        <testcase classname="src/lib/Timeline.test.ts" name="Timeline &gt; renders every step and marks completed ones" time="0.0780247">
+        </testcase>
+    </testsuite>
+</testsuites>

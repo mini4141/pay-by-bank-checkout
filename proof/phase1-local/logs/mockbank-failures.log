@@ -1,0 +1,10 @@
+mockbank-1  | {"time":"2026-11-26T11:00:28.07377545Z","level":"WARN","msg":"injected_failure","service":"mockbank","op":"debit","key":"pay_706bcc6f2cbc3dd096ff","consecutive":1}
+mockbank-1  | {"time":"2026-11-26T11:09:26.672965192Z","level":"WARN","msg":"injected_failure","service":"mockbank","op":"debit","key":"pay_c5784e0df677b2f1a44d","consecutive":1}
+mockbank-1  | {"time":"2026-11-26T11:09:27.698677792Z","level":"WARN","msg":"injected_failure","service":"mockbank","op":"debit","key":"pay_c5784e0df677b2f1a44d","consecutive":2}
+mockbank-1  | {"time":"2026-11-26T11:09:29.719030901Z","level":"WARN","msg":"injected_failure","service":"mockbank","op":"debit","key":"pay_c5784e0df677b2f1a44d","consecutive":3}
+mockbank-1  | {"time":"2026-11-26T11:12:55.896995182Z","level":"WARN","msg":"injected_failure","service":"mockbank","op":"debit","key":"pay_45ef77a4f6fdd8516cc6","consecutive":1}
+mockbank-1  | {"time":"2026-11-26T11:12:56.909074746Z","level":"WARN","msg":"injected_failure","service":"mockbank","op":"debit","key":"pay_45ef77a4f6fdd8516cc6","consecutive":2}
+mockbank-1  | {"time":"2026-11-26T11:12:58.935154669Z","level":"WARN","msg":"injected_failure","service":"mockbank","op":"debit","key":"pay_45ef77a4f6fdd8516cc6","consecutive":3}
+mockbank-1  | {"time":"2026-11-26T11:16:05.492829578Z","level":"WARN","msg":"injected_failure","service":"mockbank","op":"debit","key":"pay_779ec91b855cf7864354","consecutive":1}
+mockbank-1  | {"time":"2026-11-26T11:16:06.508168748Z","level":"WARN","msg":"injected_failure","service":"mockbank","op":"debit","key":"pay_779ec91b855cf7864354","consecutive":2}
+mockbank-1  | {"time":"2026-11-26T11:16:08.520304072Z","level":"WARN","msg":"injected_failure","service":"mockbank","op":"debit","key":"pay_779ec91b855cf7864354","consecutive":3}

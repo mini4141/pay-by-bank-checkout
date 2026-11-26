@@ -1,1 +1,13 @@
-{ "name": "@pay/e2e", "private": true, "type": "module", "devDependencies": {} }
+{
+  "name": "@pay/e2e",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.1",
+    "@types/node": "^26.6.10",
+    "typescript": "^7.0.2"
+  }
+}

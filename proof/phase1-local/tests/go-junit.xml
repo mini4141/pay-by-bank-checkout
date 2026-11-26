@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="3">
+	<testsuite name="github.com/mini4141/pay-by-bank-checkout/gen/go/pay/v1" tests="0" failures="0" errors="0" id="0" hostname="DESKTOP-LSTSC86" time="0.000" timestamp="2026-11-26T18:15:09+07:00"></testsuite>
+	<testsuite name="github.com/mini4141/pay-by-bank-checkout/gen/go/pay/v1/payv1connect" tests="0" failures="0" errors="0" id="1" hostname="DESKTOP-LSTSC86" time="0.000" timestamp="2026-11-26T18:15:09+07:00"></testsuite>
+	<testsuite name="github.com/mini4141/pay-by-bank-checkout/internal/envx" tests="0" failures="0" errors="0" id="2" hostname="DESKTOP-LSTSC86" time="0.000" timestamp="2026-11-26T18:15:09+07:00"></testsuite>
+	<testsuite name="github.com/mini4141/pay-by-bank-checkout/internal/flow" tests="0" failures="0" errors="0" id="3" hostname="DESKTOP-LSTSC86" time="0.000" timestamp="2026-11-26T18:15:09+07:00"></testsuite>
+	<testsuite name="github.com/mini4141/pay-by-bank-checkout/internal/logx" tests="0" failures="0" errors="0" id="4" hostname="DESKTOP-LSTSC86" time="0.000" timestamp="2026-11-26T18:15:09+07:00"></testsuite>
+	<testsuite name="github.com/mini4141/pay-by-bank-checkout/internal/store" tests="1" failures="0" errors="0" id="5" hostname="DESKTOP-LSTSC86" time="0.447" timestamp="2026-11-26T18:15:11+07:00">
+		<testcase name="TestInsertAndReadPayment" classname="github.com/mini4141/pay-by-bank-checkout/internal/store" time="0.160">
+			<system-out><![CDATA[2026/11/26 18:15:11 goose: no migrations to run. current version: 1]]></system-out>
+		</testcase>
+	</testsuite>
+	<testsuite name="github.com/mini4141/pay-by-bank-checkout/internal/webhook" tests="0" failures="0" errors="0" id="6" hostname="DESKTOP-LSTSC86" time="0.000" timestamp="2026-11-26T18:15:11+07:00"></testsuite>
+	<testsuite name="github.com/mini4141/pay-by-bank-checkout/services/api" tests="0" failures="0" errors="0" id="7" hostname="DESKTOP-LSTSC86" time="0.000" timestamp="2026-11-26T18:15:11+07:00"></testsuite>
+	<testsuite name="github.com/mini4141/pay-by-bank-checkout/services/api/db" tests="0" failures="0" errors="0" id="8" hostname="DESKTOP-LSTSC86" time="0.000" timestamp="2026-11-26T18:15:11+07:00"></testsuite>
+	<testsuite name="github.com/mini4141/pay-by-bank-checkout/services/api/migrations" tests="0" failures="0" errors="0" id="9" hostname="DESKTOP-LSTSC86" time="0.000" timestamp="2026-11-26T18:15:11+07:00"></testsuite>
+	<testsuite name="github.com/mini4141/pay-by-bank-checkout/services/mockbank" tests="0" failures="0" errors="0" id="10" hostname="DESKTOP-LSTSC86" time="0.000" timestamp="2026-11-26T18:15:11+07:00"></testsuite>
+	<testsuite name="github.com/mini4141/pay-by-bank-checkout/services/receiver" tests="0" failures="0" errors="0" id="11" hostname="DESKTOP-LSTSC86" time="0.000" timestamp="2026-11-26T18:15:11+07:00"></testsuite>
+	<testsuite name="github.com/mini4141/pay-by-bank-checkout/services/worker" tests="2" failures="0" errors="0" id="12" hostname="DESKTOP-LSTSC86" time="0.339" timestamp="2026-11-26T18:15:12+07:00">
+		<testcase name="TestPaymentWorkflowHappyPath" classname="github.com/mini4141/pay-by-bank-checkout/services/worker" time="0.070">
+			<system-out><![CDATA[2026/11/26 18:15:12 DEBUG handleActivityResult: *workflowservice.RespondActivityTaskCompletedRequest. ActivityID 1 ActivityType ReserveFunds
+2026/11/26 18:15:12 DEBUG handleActivityResult: *workflowservice.RespondActivityTaskCompletedRequest. ActivityID 2 ActivityType RiskCheck
+2026/11/26 18:15:12 DEBUG handleActivityResult: *workflowservice.RespondActivityTaskCompletedRequest. ActivityID 3 ActivityType Debit
+2026/11/26 18:15:12 DEBUG handleActivityResult: *workflowservice.RespondActivityTaskCompletedRequest. ActivityID 4 ActivityType SettleToMerchant
+2026/11/26 18:15:12 DEBUG handleActivityResult: *workflowservice.RespondActivityTaskCompletedRequest. ActivityID 5 ActivityType DeliverWebhook]]></system-out>
+		</testcase>
+		<testcase name="TestDebitIsRetriedAfterOneError" classname="github.com/mini4141/pay-by-bank-checkout/services/worker" time="0.000">
+			<system-out><![CDATA[2026/11/26 18:15:12 DEBUG handleActivityResult: *workflowservice.RespondActivityTaskCompletedRequest. ActivityID 1 ActivityType ReserveFunds
+2026/11/26 18:15:12 DEBUG handleActivityResult: *workflowservice.RespondActivityTaskCompletedRequest. ActivityID 2 ActivityType RiskCheck
+2026/11/26 18:15:12 ERROR Activity error. WorkflowID default-test-workflow-id RunID default-test-run-id ActivityType Debit Attempt 1 Error bank unavailable
+2026/11/26 18:15:12 DEBUG Auto fire timer TimerID 4 TimerDuration 1s TimeSkipped 1s
+2026/11/26 18:15:12 DEBUG handleActivityResult: *workflowservice.RespondActivityTaskCompletedRequest. ActivityID 3 ActivityType Debit
+2026/11/26 18:15:12 DEBUG handleActivityResult: *workflowservice.RespondActivityTaskCompletedRequest. ActivityID 5 ActivityType SettleToMerchant
+2026/11/26 18:15:12 DEBUG handleActivityResult: *workflowservice.RespondActivityTaskCompletedRequest. ActivityID 6 ActivityType DeliverWebhook]]></system-out>
+		</testcase>
+	</testsuite>
+</testsuites>

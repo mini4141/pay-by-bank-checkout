@@ -1,0 +1,34 @@
+?   	github.com/mini4141/pay-by-bank-checkout/gen/go/pay/v1	[no test files]
+?   	github.com/mini4141/pay-by-bank-checkout/gen/go/pay/v1/payv1connect	[no test files]
+?   	github.com/mini4141/pay-by-bank-checkout/internal/envx	[no test files]
+?   	github.com/mini4141/pay-by-bank-checkout/internal/flow	[no test files]
+?   	github.com/mini4141/pay-by-bank-checkout/internal/logx	[no test files]
+=== RUN   TestInsertAndReadPayment
+2026/11/26 18:15:11 goose: no migrations to run. current version: 1
+--- PASS: TestInsertAndReadPayment (0.16s)
+PASS
+ok  	github.com/mini4141/pay-by-bank-checkout/internal/store	0.447s
+?   	github.com/mini4141/pay-by-bank-checkout/internal/webhook	[no test files]
+?   	github.com/mini4141/pay-by-bank-checkout/services/api	[no test files]
+?   	github.com/mini4141/pay-by-bank-checkout/services/api/db	[no test files]
+?   	github.com/mini4141/pay-by-bank-checkout/services/api/migrations	[no test files]
+?   	github.com/mini4141/pay-by-bank-checkout/services/mockbank	[no test files]
+?   	github.com/mini4141/pay-by-bank-checkout/services/receiver	[no test files]
+=== RUN   TestPaymentWorkflowHappyPath
+2026/11/26 18:15:12 DEBUG handleActivityResult: *workflowservice.RespondActivityTaskCompletedRequest. ActivityID 1 ActivityType ReserveFunds
+2026/11/26 18:15:12 DEBUG handleActivityResult: *workflowservice.RespondActivityTaskCompletedRequest. ActivityID 2 ActivityType RiskCheck
+2026/11/26 18:15:12 DEBUG handleActivityResult: *workflowservice.RespondActivityTaskCompletedRequest. ActivityID 3 ActivityType Debit
+2026/11/26 18:15:12 DEBUG handleActivityResult: *workflowservice.RespondActivityTaskCompletedRequest. ActivityID 4 ActivityType SettleToMerchant
+2026/11/26 18:15:12 DEBUG handleActivityResult: *workflowservice.RespondActivityTaskCompletedRequest. ActivityID 5 ActivityType DeliverWebhook
+--- PASS: TestPaymentWorkflowHappyPath (0.07s)
+=== RUN   TestDebitIsRetriedAfterOneError
+2026/11/26 18:15:12 DEBUG handleActivityResult: *workflowservice.RespondActivityTaskCompletedRequest. ActivityID 1 ActivityType ReserveFunds
+2026/11/26 18:15:12 DEBUG handleActivityResult: *workflowservice.RespondActivityTaskCompletedRequest. ActivityID 2 ActivityType RiskCheck
+2026/11/26 18:15:12 ERROR Activity error. WorkflowID default-test-workflow-id RunID default-test-run-id ActivityType Debit Attempt 1 Error bank unavailable
+2026/11/26 18:15:12 DEBUG Auto fire timer TimerID 4 TimerDuration 1s TimeSkipped 1s
+2026/11/26 18:15:12 DEBUG handleActivityResult: *workflowservice.RespondActivityTaskCompletedRequest. ActivityID 3 ActivityType Debit
+2026/11/26 18:15:12 DEBUG handleActivityResult: *workflowservice.RespondActivityTaskCompletedRequest. ActivityID 5 ActivityType SettleToMerchant
+2026/11/26 18:15:12 DEBUG handleActivityResult: *workflowservice.RespondActivityTaskCompletedRequest. ActivityID 6 ActivityType DeliverWebhook
+--- PASS: TestDebitIsRetriedAfterOneError (0.00s)
+PASS
+ok  	github.com/mini4141/pay-by-bank-checkout/services/worker	0.339s

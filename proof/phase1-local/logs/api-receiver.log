@@ -1,0 +1,100 @@
+receiver-1  | {"time":"2026-11-26T11:00:20.738120919Z","level":"INFO","msg":"receiver listening","service":"receiver","addr":":8082"}
+receiver-1  | {"time":"2026-11-26T11:00:29.136469769Z","level":"INFO","msg":"webhook received","service":"receiver","valid":true}
+receiver-1  | {"time":"2026-11-26T11:00:29.136520174Z","level":"INFO","msg":"request","service":"receiver","method":"POST","path":"/receiver/webhook","ms":0}
+api-1       | {"time":"2026-11-26T11:00:19.988148243Z","level":"INFO","msg":"api listening","service":"api","addr":":8080"}
+api-1       | {"time":"2026-11-26T11:00:27.255694087Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.MerchantService/CreateMerchant","ms":5}
+receiver-1  | {"time":"2026-11-26T11:00:46.525048219Z","level":"INFO","msg":"webhook received","service":"receiver","valid":true}
+receiver-1  | {"time":"2026-11-26T11:00:46.525106724Z","level":"INFO","msg":"request","service":"receiver","method":"POST","path":"/receiver/webhook","ms":0}
+api-1       | {"time":"2026-11-26T11:00:27.596358728Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.CheckoutService/CreateCheckout","ms":11}
+api-1       | {"time":"2026-11-26T11:00:27.978617475Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.PaymentService/StartPayment","ms":22}
+api-1       | {"time":"2026-11-26T11:00:40.29727422Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.PaymentService/ListPayments","ms":13}
+api-1       | {"time":"2026-11-26T11:00:40.515169139Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.MerchantService/GetBalance","ms":5}
+receiver-1  | {"time":"2026-11-26T11:09:33.775194306Z","level":"INFO","msg":"webhook received","service":"receiver","valid":true}
+receiver-1  | {"time":"2026-11-26T11:09:33.775311719Z","level":"INFO","msg":"request","service":"receiver","method":"POST","path":"/receiver/webhook","ms":0}
+receiver-1  | {"time":"2026-11-26T11:09:34.868076438Z","level":"INFO","msg":"request","service":"receiver","method":"GET","path":"/receiver/deliveries","ms":0}
+receiver-1  | {"time":"2026-11-26T11:09:41.179030322Z","level":"INFO","msg":"webhook received","service":"receiver","valid":true}
+receiver-1  | {"time":"2026-11-26T11:09:41.179345055Z","level":"INFO","msg":"request","service":"receiver","method":"POST","path":"/receiver/webhook","ms":0}
+receiver-1  | {"time":"2026-11-26T11:13:02.983229305Z","level":"INFO","msg":"webhook received","service":"receiver","valid":true}
+receiver-1  | {"time":"2026-11-26T11:13:02.983302412Z","level":"INFO","msg":"request","service":"receiver","method":"POST","path":"/receiver/webhook","ms":0}
+receiver-1  | {"time":"2026-11-26T11:13:03.85035906Z","level":"INFO","msg":"request","service":"receiver","method":"GET","path":"/receiver/deliveries","ms":0}
+api-1       | {"time":"2026-11-26T11:00:46.453123975Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.PaymentService/RefundPayment","ms":12}
+api-1       | {"time":"2026-11-26T11:00:50.614692438Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.MerchantService/GetBalance","ms":1}
+api-1       | {"time":"2026-11-26T11:09:18.007891817Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.MerchantService/CreateMerchant","ms":3}
+api-1       | {"time":"2026-11-26T11:09:24.853595463Z","level":"INFO","msg":"request","service":"api","method":"OPTIONS","path":"/api/pay.v1.MerchantService/GetBalance","ms":0}
+api-1       | {"time":"2026-11-26T11:09:24.859783598Z","level":"INFO","msg":"request","service":"api","method":"OPTIONS","path":"/api/pay.v1.PaymentService/WatchMerchantPayments","ms":0}
+api-1       | {"time":"2026-11-26T11:09:24.862281655Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.MerchantService/GetBalance","ms":3}
+api-1       | {"time":"2026-11-26T11:09:25.00196089Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.MerchantService/GetBalance","ms":3}
+api-1       | {"time":"2026-11-26T11:09:25.218623926Z","level":"INFO","msg":"request","service":"api","method":"OPTIONS","path":"/api/pay.v1.CheckoutService/CreateCheckout","ms":0}
+api-1       | {"time":"2026-11-26T11:09:25.232448145Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.CheckoutService/CreateCheckout","ms":8}
+api-1       | {"time":"2026-11-26T11:09:25.992097508Z","level":"INFO","msg":"request","service":"api","method":"OPTIONS","path":"/api/pay.v1.CheckoutService/GetCheckout","ms":0}
+receiver-1  | {"time":"2026-11-26T11:13:09.011628593Z","level":"INFO","msg":"webhook received","service":"receiver","valid":true}
+receiver-1  | {"time":"2026-11-26T11:13:09.011730902Z","level":"INFO","msg":"request","service":"receiver","method":"POST","path":"/receiver/webhook","ms":0}
+receiver-1  | {"time":"2026-11-26T11:16:12.567295832Z","level":"INFO","msg":"webhook received","service":"receiver","valid":true}
+receiver-1  | {"time":"2026-11-26T11:16:12.567371839Z","level":"INFO","msg":"request","service":"receiver","method":"POST","path":"/receiver/webhook","ms":0}
+receiver-1  | {"time":"2026-11-26T11:16:13.272468459Z","level":"INFO","msg":"request","service":"receiver","method":"GET","path":"/receiver/deliveries","ms":0}
+receiver-1  | {"time":"2026-11-26T11:16:18.479774596Z","level":"INFO","msg":"webhook received","service":"receiver","valid":true}
+receiver-1  | {"time":"2026-11-26T11:16:18.479842303Z","level":"INFO","msg":"request","service":"receiver","method":"POST","path":"/receiver/webhook","ms":0}
+api-1       | {"time":"2026-11-26T11:09:26.000521872Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.CheckoutService/GetCheckout","ms":5}
+api-1       | {"time":"2026-11-26T11:09:26.546574917Z","level":"INFO","msg":"request","service":"api","method":"OPTIONS","path":"/api/pay.v1.PaymentService/StartPayment","ms":0}
+api-1       | {"time":"2026-11-26T11:09:26.574989834Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.PaymentService/StartPayment","ms":25}
+api-1       | {"time":"2026-11-26T11:09:26.595341223Z","level":"INFO","msg":"request","service":"api","method":"OPTIONS","path":"/api/pay.v1.PaymentService/WatchPayment","ms":0}
+api-1       | {"time":"2026-11-26T11:09:26.63787649Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.MerchantService/GetBalance","ms":5}
+api-1       | {"time":"2026-11-26T11:09:26.884347293Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.MerchantService/GetBalance","ms":4}
+api-1       | {"time":"2026-11-26T11:09:27.887307656Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.MerchantService/GetBalance","ms":3}
+api-1       | {"time":"2026-11-26T11:09:29.877572877Z","level":"INFO","msg":"request","service":"api","method":"OPTIONS","path":"/api/pay.v1.MerchantService/GetBalance","ms":0}
+api-1       | {"time":"2026-11-26T11:09:29.882554888Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.MerchantService/GetBalance","ms":2}
+api-1       | {"time":"2026-11-26T11:09:33.853270622Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.PaymentService/WatchPayment","ms":7255}
+api-1       | {"time":"2026-11-26T11:09:33.881008769Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.MerchantService/GetBalance","ms":3}
+api-1       | {"time":"2026-11-26T11:09:40.92650726Z","level":"INFO","msg":"request","service":"api","method":"OPTIONS","path":"/api/pay.v1.PaymentService/RefundPayment","ms":0}
+api-1       | {"time":"2026-11-26T11:09:40.950975956Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.PaymentService/RefundPayment","ms":17}
+api-1       | {"time":"2026-11-26T11:09:41.128377055Z","level":"INFO","msg":"request","service":"api","method":"OPTIONS","path":"/api/pay.v1.MerchantService/GetBalance","ms":0}
+api-1       | {"time":"2026-11-26T11:09:41.137282863Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.MerchantService/GetBalance","ms":2}
+api-1       | {"time":"2026-11-26T11:09:41.391233772Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.MerchantService/GetBalance","ms":4}
+api-1       | {"time":"2026-11-26T11:09:41.789910045Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.PaymentService/WatchMerchantPayments","ms":16931}
+api-1       | {"time":"2026-11-26T11:11:54.076054836Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.MerchantService/GetBalance","ms":2}
+api-1       | {"time":"2026-11-26T11:12:54.539371966Z","level":"INFO","msg":"request","service":"api","method":"OPTIONS","path":"/api/pay.v1.MerchantService/GetBalance","ms":0}
+api-1       | {"time":"2026-11-26T11:12:54.540989731Z","level":"INFO","msg":"request","service":"api","method":"OPTIONS","path":"/api/pay.v1.PaymentService/WatchMerchantPayments","ms":0}
+api-1       | {"time":"2026-11-26T11:12:54.576246427Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.MerchantService/GetBalance","ms":31}
+api-1       | {"time":"2026-11-26T11:12:54.643857523Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.MerchantService/GetBalance","ms":3}
+api-1       | {"time":"2026-11-26T11:12:54.769555043Z","level":"INFO","msg":"request","service":"api","method":"OPTIONS","path":"/api/pay.v1.CheckoutService/CreateCheckout","ms":0}
+api-1       | {"time":"2026-11-26T11:12:54.794812419Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.CheckoutService/CreateCheckout","ms":22}
+api-1       | {"time":"2026-11-26T11:12:55.325590625Z","level":"INFO","msg":"request","service":"api","method":"OPTIONS","path":"/api/pay.v1.CheckoutService/GetCheckout","ms":0}
+api-1       | {"time":"2026-11-26T11:12:55.331489227Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.CheckoutService/GetCheckout","ms":3}
+api-1       | {"time":"2026-11-26T11:12:55.78211915Z","level":"INFO","msg":"request","service":"api","method":"OPTIONS","path":"/api/pay.v1.PaymentService/StartPayment","ms":0}
+api-1       | {"time":"2026-11-26T11:12:55.806829174Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.PaymentService/StartPayment","ms":22}
+api-1       | {"time":"2026-11-26T11:12:55.822326056Z","level":"INFO","msg":"request","service":"api","method":"OPTIONS","path":"/api/pay.v1.PaymentService/WatchPayment","ms":0}
+api-1       | {"time":"2026-11-26T11:12:55.829206459Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.MerchantService/GetBalance","ms":5}
+api-1       | {"time":"2026-11-26T11:12:56.056613684Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.MerchantService/GetBalance","ms":2}
+api-1       | {"time":"2026-11-26T11:12:57.054084556Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.MerchantService/GetBalance","ms":1}
+api-1       | {"time":"2026-11-26T11:12:59.054449852Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.MerchantService/GetBalance","ms":1}
+api-1       | {"time":"2026-11-26T11:13:03.052878116Z","level":"INFO","msg":"request","service":"api","method":"OPTIONS","path":"/api/pay.v1.MerchantService/GetBalance","ms":0}
+api-1       | {"time":"2026-11-26T11:13:03.056938007Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.MerchantService/GetBalance","ms":1}
+api-1       | {"time":"2026-11-26T11:13:03.080431571Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.PaymentService/WatchPayment","ms":7254}
+api-1       | {"time":"2026-11-26T11:13:08.91664644Z","level":"INFO","msg":"request","service":"api","method":"OPTIONS","path":"/api/pay.v1.PaymentService/RefundPayment","ms":0}
+api-1       | {"time":"2026-11-26T11:13:08.933010917Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.PaymentService/RefundPayment","ms":14}
+api-1       | {"time":"2026-11-26T11:13:09.05498007Z","level":"INFO","msg":"request","service":"api","method":"OPTIONS","path":"/api/pay.v1.MerchantService/GetBalance","ms":0}
+api-1       | {"time":"2026-11-26T11:13:09.059327889Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.MerchantService/GetBalance","ms":1}
+api-1       | {"time":"2026-11-26T11:13:09.252534706Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.PaymentService/WatchMerchantPayments","ms":14708}
+api-1       | {"time":"2026-11-26T11:15:02.424760148Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.MerchantService/GetBalance","ms":1}
+api-1       | {"time":"2026-11-26T11:16:04.021746634Z","level":"INFO","msg":"request","service":"api","method":"OPTIONS","path":"/api/pay.v1.MerchantService/GetBalance","ms":0}
+api-1       | {"time":"2026-11-26T11:16:04.023148672Z","level":"INFO","msg":"request","service":"api","method":"OPTIONS","path":"/api/pay.v1.PaymentService/WatchMerchantPayments","ms":0}
+api-1       | {"time":"2026-11-26T11:16:04.028836332Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.MerchantService/GetBalance","ms":4}
+api-1       | {"time":"2026-11-26T11:16:04.136553138Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.MerchantService/GetBalance","ms":2}
+api-1       | {"time":"2026-11-26T11:16:04.24879779Z","level":"INFO","msg":"request","service":"api","method":"OPTIONS","path":"/api/pay.v1.CheckoutService/CreateCheckout","ms":0}
+api-1       | {"time":"2026-11-26T11:16:04.258737369Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.CheckoutService/CreateCheckout","ms":7}
+api-1       | {"time":"2026-11-26T11:16:04.877363479Z","level":"INFO","msg":"request","service":"api","method":"OPTIONS","path":"/api/pay.v1.CheckoutService/GetCheckout","ms":0}
+api-1       | {"time":"2026-11-26T11:16:04.883388472Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.CheckoutService/GetCheckout","ms":3}
+api-1       | {"time":"2026-11-26T11:16:05.366317821Z","level":"INFO","msg":"request","service":"api","method":"OPTIONS","path":"/api/pay.v1.PaymentService/StartPayment","ms":0}
+api-1       | {"time":"2026-11-26T11:16:05.409233247Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.PaymentService/StartPayment","ms":40}
+api-1       | {"time":"2026-11-26T11:16:05.42176358Z","level":"INFO","msg":"request","service":"api","method":"OPTIONS","path":"/api/pay.v1.PaymentService/WatchPayment","ms":0}
+api-1       | {"time":"2026-11-26T11:16:05.54130045Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.MerchantService/GetBalance","ms":2}
+api-1       | {"time":"2026-11-26T11:16:06.538484933Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.MerchantService/GetBalance","ms":1}
+api-1       | {"time":"2026-11-26T11:16:08.535430416Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.MerchantService/GetBalance","ms":0}
+api-1       | {"time":"2026-11-26T11:16:12.67599751Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.PaymentService/WatchPayment","ms":7254}
+api-1       | {"time":"2026-11-26T11:16:12.795141786Z","level":"INFO","msg":"request","service":"api","method":"OPTIONS","path":"/api/pay.v1.MerchantService/GetBalance","ms":0}
+api-1       | {"time":"2026-11-26T11:16:12.800385887Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.MerchantService/GetBalance","ms":1}
+api-1       | {"time":"2026-11-26T11:16:18.362135094Z","level":"INFO","msg":"request","service":"api","method":"OPTIONS","path":"/api/pay.v1.PaymentService/RefundPayment","ms":0}
+api-1       | {"time":"2026-11-26T11:16:18.379471874Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.PaymentService/RefundPayment","ms":14}
+api-1       | {"time":"2026-11-26T11:16:18.537256968Z","level":"INFO","msg":"request","service":"api","method":"OPTIONS","path":"/api/pay.v1.MerchantService/GetBalance","ms":0}
+api-1       | {"time":"2026-11-26T11:16:18.541526782Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.MerchantService/GetBalance","ms":1}
+api-1       | {"time":"2026-11-26T11:16:18.783846369Z","level":"INFO","msg":"request","service":"api","method":"POST","path":"/api/pay.v1.PaymentService/WatchMerchantPayments","ms":14760}
